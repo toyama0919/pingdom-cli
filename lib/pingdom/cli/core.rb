@@ -13,7 +13,13 @@ module Pingdom
 
       def checks
         response = RestClient.get(@url, @header)
-        JSON.parse(response.body, :symbolize_names => true)
+        results = JSON.parse(response.body, :symbolize_names => true)
+        results[:checks].each do |result|
+          result[:lasttesttime] = Time.at(result[:lasttesttime]) unless result[:lasttesttime].nil?
+          result[:lasterrortime] = Time.at(result[:lasterrortime]) unless result[:lasterrortime].nil?
+          result[:created] = Time.at(result[:created]) unless result[:created].nil?
+        end
+        results
       end
 
       def update(params)
