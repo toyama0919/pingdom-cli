@@ -16,6 +16,16 @@ pingdom simple command line interface
 
     $ pingdom-cli unpause
 
+## Settings
+
+create $HOME/.pingdomrc
+
+```yaml
+user: 'hogehoge@gmail.com'
+password: 'hogehoge'
+app_key: '123456hogehogehogehogehogehogehogehogehogehoge'
+```
+
 ## Installation
 
 Add this line to your application's Gemfile:
