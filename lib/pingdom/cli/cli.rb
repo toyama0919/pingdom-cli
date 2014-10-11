@@ -27,6 +27,36 @@ module Pingdom
         puts @core.checks.to_json
       end
 
+      desc "actions", "actions"
+      def actions
+        puts @core.actions.to_json
+      end
+
+      desc "contacts", "contacts"
+      def contacts
+        puts @core.contacts.to_json
+      end
+
+      desc "probes", "probes"
+      def probes
+        puts @core.probes.to_json
+      end
+
+      desc "reference", "reference"
+      def reference
+        puts @core.reference.to_json
+      end
+
+      desc "reports_public", "reports_public"
+      def reports_public
+        puts @core.reports_public.to_json
+      end
+
+      desc "settings", "settings"
+      def settings
+        puts @core.settings.to_json
+      end
+
       desc "pause", "pause"
       def pause
         puts @core.update({ paused: true })
