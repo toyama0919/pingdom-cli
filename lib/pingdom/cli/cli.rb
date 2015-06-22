@@ -19,42 +19,47 @@ module Pingdom
 
       desc "config", "config"
       def config
-        puts @config.to_json
+        puts_json @config
       end
 
       desc "checks", "checks"
       def checks
-        puts @core.checks.to_json
+        puts_json @core.checks
       end
 
       desc "actions", "actions"
       def actions
-        puts @core.actions.to_json
+        puts_json @core.actions
       end
 
       desc "contacts", "contacts"
       def contacts
-        puts @core.contacts.to_json
+        puts_json @core.contacts
       end
 
       desc "probes", "probes"
       def probes
-        puts @core.probes.to_json
+        puts_json @core.probes
       end
 
       desc "reference", "reference"
       def reference
-        puts @core.reference.to_json
+        puts_json @core.reference
       end
 
       desc "reports_public", "reports_public"
       def reports_public
-        puts @core.reports_public.to_json
+        puts_json @core.reports_public
       end
 
       desc "settings", "settings"
       def settings
-        puts @core.settings.to_json
+        puts_json @core.settings
+      end
+
+      desc "credits", "credits"
+      def credits
+        puts_json @core.credits
       end
 
       desc "pause", "pause"
@@ -71,6 +76,12 @@ module Pingdom
       option :params, type: :hash, default: {}, desc: 'params'
       def update
         puts @core.update(options['params'])
+      end
+
+      private
+
+      def puts_json(object)
+        puts JSON.pretty_generate(object)
       end
     end
   end
